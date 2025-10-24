@@ -23,7 +23,8 @@ Login with:
 ```
 az login
 az acr login --name my-registry --expose-token --query accessToken -o tsv | podman login my-registry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin  
-
+ ```
 push the image
+ ```
  podman image push my-registry.azurecr.io/minecraft-server-neo-jei-world-10-23:1.21.1
  ```
