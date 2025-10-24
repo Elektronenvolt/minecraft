@@ -2,7 +2,7 @@
 Running a Minecraft Server on a Kubernetes cluster at home.
 
 I use [Podman](https://podman.io/) to build images, setup instructions are [here](https://podman.io/docs/installation).
-]
+
 There are two image build files
 - [x] Dockerfile: Build image to run a Vanilla Minecraft Server
 - [x] Dockerfile-neoforge: If you want to have mod - use the Neoforge server setup and copy it into the image
