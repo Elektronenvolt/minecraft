@@ -13,9 +13,9 @@ There are two image build files
 ```
 
 ### Build a NeoForge image
-Ok, lets install [Java 21](https://www.oracle.com/java/technologies/downloads/#java21) and [Neoforge](https://neoforged.net/)first.  [Java verion requirements are here](https://docs.neoforged.net/user/docs/#java).
+Ok, lets install [Java 21](https://www.oracle.com/java/technologies/downloads/#java21) and [Neoforge](https://neoforged.net/) first.  [Java verion requirements are here](https://docs.neoforged.net/user/docs/#java).
 After that - check the required Minecraft version for you Mods on Neoforge, in my case it`s 1.21.1. 
-Download the neoforge server installer version you need from [https://maven.neoforged.net/releases/net/neoforged/neoforge/](https://maven.neoforged.net/releases/net/neoforged/neoforge/) in my case it`s
+Download the neoforge server installer version you need from [https://maven.neoforged.net/releases/net/neoforged/neoforge/](https://maven.neoforged.net/releases/net/neoforged/neoforge/) in my case it's
 ```
 wget https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.1/neoforge-21.1.1-installer.jar -OutFile neoforge-21.1.1-installer.jar
 ```
