@@ -1,0 +1,20 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /minecraft
+
+RUN apt-get update && apt-get install -y \
+    openjdk-8-jdk \
+    && rm -rf /var/lib/apt/lists/*
+# Get Minecraft forge server files 14.23.5.2860 from https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html
+# Get Java 8 from https://www.java.com/en/download/manual.jsp
+COPY server-rl-craft/ /minecraft/
+COPY rl-craft-12-29-2025/ /minecraft/world/
+
+RUN echo "eula=true" > eula.txt
+
+# runtime setting from https://youtu.be/d13qXhPspQc?t=390
+EXPOSE 25565
+ENTRYPOINT [ "java" ] 
+CMD ["-Xms4G", "-Xmx8G", "-jar", "forge-1.12.2-14.23.5.2860.jar", "nogui" ]
