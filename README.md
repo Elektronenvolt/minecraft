@@ -30,16 +30,16 @@ podman build -t my-registry.azurecr.io/minecraft-server-neoforge:1.21.1 -f .\Doc
 ### 3 Build a RL Craft image
 
 - Install the [Cursforge](https://www.curseforge.com) client, search for the [RL Craft mod](https://www.curseforge.com/minecraft/modpacks/rlcraft/gallery) and install it.  Open the profile and click `Download Server Pack`  
-[<img src="images/server-pack.png">]
+<img src="images/server-pack.png">
 
 - RL Craft uses Minecraft 1.12.2 which is based on Java 8, lets install it to unpack the server binaries[Java 8](https://www.java.com/en/download/manual.jsp)
 
 - In my case modloader Forge in version 14.23.5.2860 is used.
-[<img src="images/forge.png">]
+<img src="images/forge.png">
  Lets get the server binaries here: [https://files.minecraftforge.net](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html)
 
 - Run the server install und unpack it to folder `minecraft`  
-[<img src="images/server-installer.png">]
+<img src="images/server-installer.png">
 
 - Unpack the sever pack into folder `minecraft`  
 
