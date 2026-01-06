@@ -8,12 +8,12 @@ There are multiple image build files
 - [x] Dockerfile-neoforge: If you want to have mod - use the Neoforge server setup and copy it into the image
 - [x] Dockerfile-RL-Craft: If you want to run the [RL-Craft](https://www.curseforge.com/minecraft/modpacks/rlcraft) mod - use [Curseforge](https://www.curseforge.com/) with the Neoforge server package
 
-### 1 Build an Vanilla image
+### 1a Build an Vanilla image
 ```
  podman build -t my-registry.azurecr.io/minecraft-server:1.21.1 -f .\Dockerfile .
 ```
 
-### 2 Build a NeoForge image
+### 1b Build a NeoForge image
 Ok, lets install [Java 21](https://www.oracle.com/java/technologies/downloads/#java21) and [Neoforge](https://neoforged.net/) first.  [Java verion requirements are here](https://docs.neoforged.net/user/docs/#java).
 After that - check the required Minecraft version for you Mods on Neoforge, in my case it`s 1.21.1. 
 Download the neoforge server installer version you need from [https://maven.neoforged.net/releases/net/neoforged/neoforge/](https://maven.neoforged.net/releases/net/neoforged/neoforge/) in my case it's
@@ -27,7 +27,7 @@ Now, select the Mods you want to have in Neoforge and install them. Copy the mod
 podman build -t my-registry.azurecr.io/minecraft-server-neoforge:1.21.1 -f .\Dockerfile-neoforge .
 ```
 
-### 3 Build a RL Craft image
+### 1c Build a RL Craft image
 
 - Install the [Cursforge](https://www.curseforge.com) client, search for the [RL Craft mod](https://www.curseforge.com/minecraft/modpacks/rlcraft/gallery) and install it.  Open the profile and click `Download Server Pack`  
 <img src="images/server-pack.png">
@@ -43,17 +43,19 @@ podman build -t my-registry.azurecr.io/minecraft-server-neoforge:1.21.1 -f .\Doc
 
 - Unpack the sever pack into folder `minecraft`  
 
+- Read the `FOR SERVERS ONLY - SET THESE IN SERVER.PROPERTIES.txt` and copy the server config server.properties file into the minecraft folder. In my case it's using gamemode creative.
+
 Build the image with
 ```
 podman build -t my-registry.azurecr.io/minecraft-server-rl-craft:1.12.2 -f .\Dockerfile-rl-craft .
 ```
 
-### Run local
+### 2 Run local
 ```
 podman run --rm -p 25565:25565 my-registry.azurecr.io/minecraft-server:1.21.1
 ```
 
-### push image to a container registry
+### 3 push image to a container registry
 I'm using a Azure Container Registry here. 
 Login with:
 ```

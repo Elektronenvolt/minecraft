@@ -7,14 +7,14 @@ WORKDIR /minecraft
 RUN apt-get update && apt-get install -y \
     openjdk-8-jdk \
     && rm -rf /var/lib/apt/lists/*
-# Get Minecraft forge server files 14.23.5.2860 from https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html
-# Get Java 8 from https://www.java.com/en/download/manual.jsp
+
 COPY server-rl-craft/ /minecraft/
-COPY rl-craft-12-29-2025/ /minecraft/world/
+# If you have a backup of your world, copy it here. WSL command: kubectl cp namespace/podname:/minecraft/world /mnt/c/Minecraft/world-backup
+# COPY world-backup/ /minecraft/world/
 
 RUN echo "eula=true" > eula.txt
 
-# runtime setting from https://youtu.be/d13qXhPspQc?t=390
+# with 4 players not more than 6GB RAM is used, 8GB should be enough
 EXPOSE 25565
 ENTRYPOINT [ "java" ] 
 CMD ["-Xms4G", "-Xmx8G", "-jar", "forge-1.12.2-14.23.5.2860.jar", "nogui" ]
